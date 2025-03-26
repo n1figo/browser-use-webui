@@ -84,8 +84,15 @@ def get_llm_model(provider: str, **kwargs):
         )
     elif provider == "ollama":
         return ChatOllama(
-            model=kwargs.get("model_name", "qwen2.5:7b"),
+            model=kwargs.get("model_name", "phi3"),
             temperature=kwargs.get("temperature", 0.0),
+            base_url=kwargs.get("base_url", "http://localhost:11434"),
+        )
+    elif provider == "phi4-local":
+        return ChatOllama(
+            model="phi3",  # Ollama에서는 phi4 대신 phi3 모델명을 사용합니다
+            temperature=kwargs.get("temperature", 0.0),
+            base_url=kwargs.get("base_url", "http://localhost:11434"),
         )
     elif provider == "azure_openai":
         if not kwargs.get("base_url", ""):

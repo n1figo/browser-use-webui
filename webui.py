@@ -334,14 +334,15 @@ def create_ui(theme_name="Ocean"):
                             "azure_openai",
                             "deepseek",
                             "ollama",
+                            "phi4-local",
                         ],
                         label="LLM Provider",
-                        value="openai",
+                        value="phi4-local",
                         info="Select your preferred language model provider",
                     )
                     llm_model_name = gr.Textbox(
                         label="Model Name",
-                        value="gpt-4o",
+                        value="phi3",
                         info="Specify the model to use",
                     )
                     llm_temperature = gr.Slider(
